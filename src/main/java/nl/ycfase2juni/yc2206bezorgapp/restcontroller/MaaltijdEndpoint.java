@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import nl.ycfase2juni.yc2206bezorgapp.model.Maaltijd;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.MaaltijdService;
 
 @RestController
@@ -18,8 +19,11 @@ public class MaaltijdEndpoint {
 
 	}
 	@GetMapping("twee")
-	public void abracadabra() {
+	public Maaltijd abracadabra() {
 		System.out.println("een hij doet het!");
 		ms.daargaanwe();
+		Maaltijd m = new Maaltijd();
+		m.setNaam("Patat");
+		return m;
 	}
 }
