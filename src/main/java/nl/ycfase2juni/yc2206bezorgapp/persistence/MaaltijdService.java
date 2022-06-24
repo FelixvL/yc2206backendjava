@@ -22,4 +22,9 @@ public class MaaltijdService {
 		
 		
 	}
+
+	public Iterable<Maaltijd> geefAlleMaaltijden() {
+		// TODO Auto-generated method stub
+		return mr.findAll();
+	}
 }
