@@ -31,5 +31,7 @@ public class MaaltijdEndpoint {
 	@PostMapping("maaltijdinvoeren")
 	public void maaltijdInvoeren(@RequestBody Maaltijd m) {
 		System.out.println(m.getNaam());
+		ms.maaltijdInvoeren(m);
+		
 	}
 }
