@@ -34,4 +34,10 @@ public class MaaltijdEndpoint {
 		ms.maaltijdInvoeren(m);
 		
 	}
+	
+	@GetMapping("overzichtmaaltijden")
+	public Iterable<Maaltijd> overzichtMaaltijden() {
+		return ms.geefAlleMaaltijden();
+		
+	}
 }
