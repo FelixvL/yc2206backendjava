@@ -14,4 +14,10 @@ public class MaaltijdService {
 		System.out.println("in de service");
 		mr.save(new Maaltijd());
 	}
+
+	public void maaltijdInvoeren(Maaltijd m) {
+		mr.save(m);
+		
+		
+	}
 }
