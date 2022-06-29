@@ -20,9 +20,6 @@ public class Maaltijd {
 	private int calorieen;
 	private float prijs;
 
-	@ManyToMany
-	private List<Ingredient> ingredient1;
-
 	public long getId() {
 		return id;
 	}
@@ -63,13 +60,6 @@ public class Maaltijd {
 		this.prijs = prijs;
 	}
 
-	public List<Ingredient> getIngredient1() {
-		return ingredient1;
-	}
-
-	public void setIngredient1(List<Ingredient> ingredient1) {
-		this.ingredient1 = ingredient1;
-	}
 	
 	
 	
