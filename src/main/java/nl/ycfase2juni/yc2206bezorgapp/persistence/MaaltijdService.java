@@ -10,21 +10,13 @@ public class MaaltijdService {
 	@Autowired
 	MaaltijdRepository mr;
 
-	public void daargaanwe() {
-		System.out.println("in de service");
-		mr.save(new Maaltijd());
-	}
-
 	public void maaltijdInvoeren(Maaltijd m) {
 		mr.save(m);
-		
-	
-		
-		
+			
 	}
 
 	public Iterable<Maaltijd> geefAlleMaaltijden() {
-		// TODO Auto-generated method stub
 		return mr.findAll();
 	}
+
 }
