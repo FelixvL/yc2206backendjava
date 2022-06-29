@@ -14,11 +14,9 @@ public class MaaltijdService {
 		mr.save(m);
 			
 	}
-<<<<<<< Updated upstream
-=======
 
 	public Iterable<Maaltijd> geefAlleMaaltijden() {
 		return mr.findAll();
 	}
->>>>>>> Stashed changes
+
 }

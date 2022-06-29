@@ -22,5 +22,9 @@ public class MaaltijdEndpoint {
 		
 	}
 	
-	
+	@GetMapping("overzichtmaaltijden")
+	public Iterable<Maaltijd> overzichtMaaltijden() {
+		return ms.geefAlleMaaltijden();
+		
+	}
 }
