@@ -1,6 +1,7 @@
 package nl.ycfase2juni.yc2206bezorgapp.restcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,12 @@ public class BestellingEndpoint {
 	public void bestellingInvoeren(@RequestBody Bestelling b, @PathVariable("maaltijd_id") int maaltijd_id) {
 		System.out.println(b.getId());
 		bs.bestellingInvoeren(b, maaltijd_id);
+		
+	}
+	
+	@GetMapping("overzichtbestellingen")
+	public Iterable<Bestelling> overzichtBestellingen() {
+		return bs.geefAlleBestellingen();
 		
 	}
 
