@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import nl.ycfase2juni.yc2206bezorgapp.model.Maaltijd;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.MaaltijdRepository;
-import nl.ycfase2juni.yc2206bezorgapp.persistence.MaaltijdService;
 
 @RestController
 public class FelixEndpoint {

@@ -1,24 +1,23 @@
 package nl.ycfase2juni.yc2206bezorgapp.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Maaltijd {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String naam;
 	private String beschrijving;
 	private int calorieen;
 	private float prijs;
+	
+	@ManyToOne(optional = false)
+	private Restaurant restaurant;
 
 	public long getId() {
 		return id;
@@ -60,8 +59,12 @@ public class Maaltijd {
 		this.prijs = prijs;
 	}
 
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
 	
-	
-	
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
 	
 }

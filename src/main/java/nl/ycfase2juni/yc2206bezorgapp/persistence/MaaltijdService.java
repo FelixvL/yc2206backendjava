@@ -1,5 +1,7 @@
 package nl.ycfase2juni.yc2206bezorgapp.persistence;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ public class MaaltijdService {
 			
 	}
 
-	public Iterable<Maaltijd> geefAlleMaaltijden() {
+	public List<Maaltijd> geefAlleMaaltijden() {
 		return mr.findAll();
 	}
 
