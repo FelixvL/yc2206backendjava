@@ -24,5 +24,10 @@ public class RestaurantService {
 	public List<Restaurant> geefAlleRestaurants() {
 		return rr.findAll();
 	}
+	
+	public void deleteById(long id) {
+		this.rr.deleteById(id);
+	}
+	
 }
 
