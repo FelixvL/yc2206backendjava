@@ -37,8 +37,13 @@ public class FelixEndpoint {
 		mr.deleteById(mid);
 	}
 	@PostMapping("dingmetplaatje")
-	public void dingmetplaatje(@RequestBody FelixModel fm) {
+	public String dingmetplaatje(@RequestBody FelixModel fm) {
 		System.out.println("we zitten in de post");
-//		fmr.save(fm);
+		fmr.save(fm);
+		return "methode post van plaatje";
+	}
+	@GetMapping("alledingenmetplaatjes")
+	public Iterable<FelixModel> alledingenmetplaatjes(){
+		return fmr.findAll();
 	}
 }

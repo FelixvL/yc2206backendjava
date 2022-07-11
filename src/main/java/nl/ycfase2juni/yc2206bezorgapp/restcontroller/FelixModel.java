@@ -14,6 +14,23 @@ public class FelixModel {
 	private long id;
 
 	@Column(length = 100000)
-	private byte[] fotoimage;
+	private String fotoimage;
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getFotoimage() {
+		return fotoimage;
+	}
+
+	public void setFotoimage(String fotoimage) {
+		this.fotoimage = fotoimage;
+	}
+
+	
 }
