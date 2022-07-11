@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Ingredient {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	
 	String naam;

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import nl.ycfase2juni.yc2206bezorgapp.model.Maaltijd;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.MaaltijdRepository;
-import nl.ycfase2juni.yc2206bezorgapp.persistence.MaaltijdService;
 
 @RestController
 public class FelixEndpoint {
@@ -25,6 +24,7 @@ public class FelixEndpoint {
 	public Iterable<Maaltijd> alleMaaltijden(){
 		return mr.findAll();
 	}
+
 	@PostMapping("api/maaltijd")
 	public Maaltijd maakMaaltijdAan(@RequestBody Maaltijd m){
 		System.out.println("maaltijd is aangemaakt");
