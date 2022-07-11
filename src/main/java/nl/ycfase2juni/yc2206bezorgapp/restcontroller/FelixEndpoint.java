@@ -25,13 +25,13 @@ public class FelixEndpoint {
 		return mr.findAll();
 	}
 
-	@PostMapping("api/maaltijd")
+	@PostMapping("felixmaakmaaltijdaan")
 	public Maaltijd maakMaaltijdAan(@RequestBody Maaltijd m){
 		System.out.println("maaltijd is aangemaakt");
 		mr.save(m);
 		return m;
 	}
-	@DeleteMapping("verwijdermaaltijd/{maaltijdid}")
+	@DeleteMapping("felixverwijdermaaltijd/{maaltijdid}")
 	public void verwijderMaaltijd(@PathVariable("maaltijdid") int maaltijdid){
 		long mid = maaltijdid;
 		mr.deleteById(mid);
