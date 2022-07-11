@@ -34,8 +34,9 @@ public class BestellingEndpoint {
 	
 	@DeleteMapping("verwijderbestelling/{bestellingid}")
 	public void verwijderMaaltijd(@PathVariable("bestellingid") int bestellingid){
-		long mid = bestellingid;
-		br.deleteById(mid);
-	}
+		long bid = bestellingid;
+		br.deleteById(bid);
+	}	
+	
 }
 

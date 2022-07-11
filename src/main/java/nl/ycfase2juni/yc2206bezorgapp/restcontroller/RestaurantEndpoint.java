@@ -50,13 +50,8 @@ public class RestaurantEndpoint {
 
 	@DeleteMapping("verwijderrestaurant/{restaurantid}")
 	public void verwijderMaaltijd(@PathVariable("restaurantid") int restaurantid){
-		long mid = restaurantid;
-		rr.deleteById(mid);
-	}
-
-	@DeleteMapping("resturant/{id}")
-	public void delete(@PathVariable long id) {
-		this.rs.deleteById(id);
+		long rid = restaurantid;
+		rr.deleteById(rid);
 	}
 
 }
