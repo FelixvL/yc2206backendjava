@@ -46,4 +46,8 @@ public class FelixEndpoint {
 	public Iterable<FelixModel> alledingenmetplaatjes(){
 		return fmr.findAll();
 	}
+	@GetMapping("geefmeeenfotoobject/{fmid}")
+	public FelixModel geefmeeenfotoobject(@PathVariable("fmid") int fmid){
+		return fmr.findById((long)fmid).get();
+	}
 }
