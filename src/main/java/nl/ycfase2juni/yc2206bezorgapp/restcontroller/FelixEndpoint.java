@@ -25,6 +25,12 @@ public class FelixEndpoint {
 	public Iterable<Maaltijd> alleMaaltijden(){
 		return mr.findAll();
 	}
+	@PostMapping("api/maaltijd")
+	public Maaltijd maakMaaltijdAan(@RequestBody Maaltijd m){
+		System.out.println("maaltijd is aangemaakt");
+		mr.save(m);
+		return m;
+	}
 	@DeleteMapping("verwijdermaaltijd/{maaltijdid}")
 	public void verwijderMaaltijd(@PathVariable("maaltijdid") int maaltijdid){
 		long mid = maaltijdid;
