@@ -1,5 +1,8 @@
 package nl.ycfase2juni.yc2206bezorgapp.dto;
 
+import nl.ycfase2juni.yc2206bezorgapp.model.Bestelling;
+import nl.ycfase2juni.yc2206bezorgapp.model.Maaltijd;
+
 public class BestellingDto {
 	
 	private long id;
@@ -13,6 +16,8 @@ public class BestellingDto {
 	private String status;
 	
 	private String opmerking;
+	
+	private String restaurantNaam;
 
 	public long getId() {
 		return id;
@@ -71,6 +76,28 @@ public class BestellingDto {
 
 	public void setOpmerking(String opmerking) {
 		this.opmerking = opmerking;
+	}
+	
+	public String getRestaurantNaam() {
+		return restaurantNaam;
+	}
+	
+	public void setRestaurantNaam(String restaurantNaam) {
+		this.restaurantNaam = restaurantNaam;
+	}
+	
+	public static BestellingDto createFromModel(Bestelling bestelling) {
+		BestellingDto bestellingDto = new BestellingDto();
+
+		bestellingDto.setMaaltijd_prijs(bestelling.getMaaltijd_prijs());
+		bestellingDto.setTotaal_prijs(bestelling.getTotaal_prijs());
+		bestellingDto.setId(bestelling.getId());
+		bestellingDto.setBetaald(bestelling.isBetaald());
+		bestellingDto.setStatus(bestelling.getStatus());
+		bestellingDto.setOpmerking(bestelling.getOpmerking());
+		bestellingDto.setRestaurantNaam(bestelling.getRestaurant().getNaam());
+		
+		return bestellingDto;
 	}
 
 }

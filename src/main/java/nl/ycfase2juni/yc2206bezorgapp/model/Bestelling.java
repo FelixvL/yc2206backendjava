@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Bestelling {
@@ -23,6 +26,9 @@ public class Bestelling {
 	
 	@ManyToMany
 	private List<Maaltijd> maaltijden = new ArrayList();
+	
+	@ManyToOne(optional = false)
+	private Restaurant restaurant;
 	
 	
 	public void voegMaaltijdToe(Maaltijd m) {
@@ -74,6 +80,14 @@ public class Bestelling {
 		this.maaltijden = maaltijden;
 	}
 	
+	@JsonIgnore 
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+	
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
 	
 	
 	
