@@ -15,8 +15,6 @@ public class Bestelling {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	// klant_id
-	// maaltijd_id
 	private float maaltijd_prijs;
 	private float totaal_prijs;
 	private boolean betaald;

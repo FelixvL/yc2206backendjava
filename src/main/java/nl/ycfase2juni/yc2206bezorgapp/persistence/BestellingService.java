@@ -13,7 +13,7 @@ public class BestellingService {
 	
 	@Autowired
 	MaaltijdRepository mr;
-
+	
 	public void bestellingInvoeren(Bestelling b, long maaltijd_id) {
 		Maaltijd m = mr.findById(maaltijd_id).get();
 		b.voegMaaltijdToe(m);

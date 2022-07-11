@@ -18,9 +18,4 @@ public class FelixEndpoint {
 	public Iterable<Maaltijd> alleMaaltijden(){
 		return mr.findAll();
 	}
-	@DeleteMapping("verwijdermaaltijd/{maaltijdid}")
-	public void verwijderMaaltijd(@PathVariable("maaltijdid") int maaltijdid){
-		long mid = maaltijdid;
-		mr.deleteById(mid);
-	}
 }
