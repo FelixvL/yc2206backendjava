@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Maaltijd {
 	@Id
@@ -59,6 +61,7 @@ public class Maaltijd {
 		this.prijs = prijs;
 	}
 
+	@JsonIgnore 
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}

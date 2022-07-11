@@ -25,9 +25,5 @@ public class RestaurantService {
 		return rr.findAll();
 	}
 	
-	public void deleteById(long id) {
-		this.rr.deleteById(id);
-	}
-	
 }
 
