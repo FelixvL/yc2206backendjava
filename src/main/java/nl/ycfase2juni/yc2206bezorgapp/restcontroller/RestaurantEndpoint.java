@@ -45,8 +45,8 @@ public class RestaurantEndpoint {
 			
 			return restaurantDto;
 		});
+		
 	}
-	
 
 	@DeleteMapping("verwijderrestaurant/{restaurantid}")
 	public void verwijderMaaltijd(@PathVariable("restaurantid") int restaurantid){
@@ -58,4 +58,5 @@ public class RestaurantEndpoint {
 	public void delete(@PathVariable long id) {
 		this.rs.deleteById(id);
 	}
+
 }
