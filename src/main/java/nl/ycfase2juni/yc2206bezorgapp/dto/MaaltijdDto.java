@@ -15,6 +15,8 @@ public class MaaltijdDto {
 	private float prijs;
 	
 	private String restaurantNaam;
+	
+	private String klantNaam;
 
 	public long getId() {
 		return id;
@@ -62,6 +64,14 @@ public class MaaltijdDto {
 	
 	public void setRestaurantNaam(String restaurantNaam) {
 		this.restaurantNaam = restaurantNaam;
+	}
+		
+	public String getKlantNaam() {
+		return klantNaam;
+	}
+
+	public void setKlantNaam(String klantNaam) {
+		this.klantNaam = klantNaam;
 	}
 	
 	public static MaaltijdDto createFromModel(Maaltijd maaltijd) {

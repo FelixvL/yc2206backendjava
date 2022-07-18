@@ -9,68 +9,59 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Restaurant {
+public class Klant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String naam;
-	private String cuisine;
-	private boolean geopend;
 	private String adres;
-	private int bezorger;
+	private String telefoonnummer;
+	private String email;
 	
-	@OneToMany(orphanRemoval = true, mappedBy = "restaurant")
-	private List<Maaltijd> maaltijden;
-	
-	@OneToMany(orphanRemoval = true, mappedBy = "restaurant")
+	@OneToMany(orphanRemoval = true, mappedBy = "klant")
 	private List<Bestelling> bestellingen;
-	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getNaam() {
 		return naam;
 	}
+
 	public void setNaam(String naam) {
 		this.naam = naam;
 	}
-	public String getCuisine() {
-		return cuisine;
-	}
-	public void setCuisine(String cuisine) {
-		this.cuisine = cuisine;
-	}
-	public boolean isGeopend() {
-		return geopend;
-	}
-	public void setGeopend(boolean geopend) {
-		this.geopend = geopend;
-	}
+
 	public String getAdres() {
 		return adres;
 	}
+
 	public void setAdres(String adres) {
 		this.adres = adres;
 	}
-	public int getBezorger() {
-		return bezorger;
+
+	public String getTelefoonnummer() {
+		return telefoonnummer;
 	}
-	public void setBezorger(int bezorger) {
-		this.bezorger = bezorger;
+
+	public void setTelefoonnummer(String telefoonnummer) {
+		this.telefoonnummer = telefoonnummer;
 	}
-	
-	public List<Maaltijd> getMaaltijden() {
-		return maaltijden;
+
+	public String getEmail() {
+		return email;
 	}
-	
-	public void setMaaltijden(List<Maaltijd> maaltijden) {
-		this.maaltijden = maaltijden;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
+
 	public List<Bestelling> getBestellingen() {
 		return bestellingen;
 	}
