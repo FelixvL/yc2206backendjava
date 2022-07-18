@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -30,6 +31,8 @@ public class Bestelling {
 	@ManyToOne(optional = false)
 	private Restaurant restaurant;
 	
+	@ManyToOne(optional = false)
+	private Klant klant;
 	
 	public void voegMaaltijdToe(Maaltijd m) {
 		maaltijden.add(m);
@@ -72,12 +75,21 @@ public class Bestelling {
 		this.opmerking = opmerking;
 	}
 
+	
 	public List<Maaltijd> getMaaltijden() {
 		return maaltijden;
 	}
 
 	public void setMaaltijden(List<Maaltijd> maaltijden) {
 		this.maaltijden = maaltijden;
+	}
+	
+	public Klant getKlant() {
+		return klant;
+	}
+
+	public void setKlant(Klant klant) {
+		this.klant = klant;
 	}
 	
 	@JsonIgnore 

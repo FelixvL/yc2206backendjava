@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import nl.ycfase2juni.yc2206bezorgapp.dto.BestellingDto;
-import nl.ycfase2juni.yc2206bezorgapp.dto.MaaltijdDto;
 import nl.ycfase2juni.yc2206bezorgapp.model.Bestelling;
+import nl.ycfase2juni.yc2206bezorgapp.model.Klant;
 import nl.ycfase2juni.yc2206bezorgapp.model.Restaurant;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.BestellingRepository;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.BestellingService;
+import nl.ycfase2juni.yc2206bezorgapp.persistence.KlantService;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.RestaurantService;
 
 @RestController
@@ -28,14 +29,23 @@ public class BestellingEndpoint {
 	RestaurantService rs;
 	
 	@Autowired
+	KlantService ks;
+	
+	@Autowired
 	BestellingRepository br;
 	
-	@PostMapping("bestellinginvoeren/{maaltijd_id}")
-	public void bestellingInvoeren(@RequestBody Bestelling b, @PathVariable("maaltijd_id") int maaltijd_id) {
+//	@PostMapping("bestellinginvoeren/{maaltijd_id}")
+//	public void bestellingInvoeren(@RequestBody Bestelling b, @PathVariable("maaltijd_id") int maaltijd_id) {
+//		System.out.println(b.getId());
+//		bs.bestellingInvoeren(b, maaltijd_id);
+//	}
+	
+	@PostMapping("bestellinginvoeren/{maaltijd_id}/{klant_id}")
+	public void klantBestellingInvoeren(@RequestBody Bestelling b, @PathVariable("maaltijd_id") long maaltijd_id, @PathVariable("klant_id") long klant_id) {
 		System.out.println(b.getId());
-		bs.bestellingInvoeren(b, maaltijd_id);
-		
+		bs.bestellingInvoeren(b, maaltijd_id, klant_id);
 	}
+	
 	
 	@GetMapping("overzichtbestellingen")
 	public Stream<BestellingDto> overzichtBestellingen() {
@@ -47,6 +57,13 @@ public class BestellingEndpoint {
 		Optional<Restaurant> optionalRestaurant = rs.findById(id);
 
 		return optionalRestaurant.get().getBestellingen().stream().map(BestellingDto::createFromModel);
+	}
+	
+	@GetMapping("overzichtklantbestellingen/klant/{id}")
+	public Stream<BestellingDto> overzichtKlantBestellingen(@PathVariable long id) {
+		Optional<Klant> optionalKlant = ks.findById(id);
+
+		return optionalKlant.get().getBestellingen().stream().map(BestellingDto::createFromModel);
 	}
 	
 	@DeleteMapping("verwijderbestelling/{bestellingid}")
