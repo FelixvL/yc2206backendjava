@@ -1,6 +1,5 @@
 package nl.ycfase2juni.yc2206bezorgapp.dto;
 
-import nl.ycfase2juni.yc2206bezorgapp.model.Bestelling;
 import nl.ycfase2juni.yc2206bezorgapp.model.Klant;
 
 public class KlantDto {

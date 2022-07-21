@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -47,13 +46,13 @@ public class Bestelling {
 	public float getMaaltijd_prijs() {
 		return maaltijd_prijs;
 	}
-	public void setMaaltijd_prijs(int maaltijd_prijs) {
+	public void setMaaltijd_prijs(float maaltijd_prijs) {
 		this.maaltijd_prijs = maaltijd_prijs;
 	}
 	public float getTotaal_prijs() {
 		return totaal_prijs;
 	}
-	public void setTotaal_prijs(int totaal_prijs) {
+	public void setTotaal_prijs(float totaal_prijs) {
 		this.totaal_prijs = totaal_prijs;
 	}
 	public boolean isBetaald() {

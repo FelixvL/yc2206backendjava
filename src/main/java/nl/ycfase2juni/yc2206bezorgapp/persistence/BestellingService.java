@@ -23,20 +23,18 @@ public class BestellingService {
 	
 	@Autowired
 	KlantRepository kr;
-	
-	public void bestellingInvoeren(long maaltijdId, long klantId, String opmerking) {
+
+	public void bestellingInvoeren(Bestelling b, long maaltijdId, long klantId) {
 		Maaltijd m = mr.findById(maaltijdId).get();
 		Klant k = kr.findById(klantId).get();
+		Restaurant r = m.getRestaurant();
 
-		Bestelling b = new Bestelling();
-		b.setBetaald(false);
-		b.setMaaltijd_prijs((int)(m.getPrijs() * 100));
-		b.setOpmerking(opmerking);
-		b.setStatus("");
+		b.setMaaltijd_prijs(m.getPrijs());
+
 		b.voegMaaltijdToe(m);
 		b.setKlant(k);
-		b.setRestaurant(m.getRestaurant());
-		
+		b.setRestaurant(r);
+
 		br.save(b);	
 	}
 	
