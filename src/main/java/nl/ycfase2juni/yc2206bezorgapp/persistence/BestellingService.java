@@ -24,14 +24,19 @@ public class BestellingService {
 	@Autowired
 	KlantRepository kr;
 	
-	public void bestellingInvoeren(Bestelling b, long maaltijd_id, long klant_id) {
-		Maaltijd m = mr.findById(maaltijd_id).get();
-		Klant k = kr.findById(klant_id).get();
-		Restaurant temp = rr.findById(8L).get();
-		
+	public void bestellingInvoeren(long maaltijdId, long klantId, String opmerking) {
+		Maaltijd m = mr.findById(maaltijdId).get();
+		Klant k = kr.findById(klantId).get();
+
+		Bestelling b = new Bestelling();
+		b.setBetaald(false);
+		b.setMaaltijd_prijs((int)(m.getPrijs() * 100));
+		b.setOpmerking(opmerking);
+		b.setStatus("");
 		b.voegMaaltijdToe(m);
 		b.setKlant(k);
-		b.setRestaurant(temp);
+		b.setRestaurant(m.getRestaurant());
+		
 		br.save(b);	
 	}
 	
