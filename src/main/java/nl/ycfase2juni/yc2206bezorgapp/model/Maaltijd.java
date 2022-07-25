@@ -15,7 +15,6 @@ public class Maaltijd {
 	private long id;
 	private String naam;
 	private String beschrijving;
-	private int calorieen;
 	private float prijs;
 	
 	@ManyToOne(optional = false)
@@ -43,14 +42,6 @@ public class Maaltijd {
 
 	public void setBeschrijving(String beschrijving) {
 		this.beschrijving = beschrijving;
-	}
-
-	public int getCalorieen() {
-		return calorieen;
-	}
-
-	public void setCalorieen(int calorieen) {
-		this.calorieen = calorieen;
 	}
 
 	public float getPrijs() {
