@@ -35,7 +35,6 @@ public class MaaltijdEndpoint {
 	public void maaltijdInvoeren(@RequestBody SaveMaaltijdDto dto) {
 		Maaltijd maaltijd = new Maaltijd();
 		maaltijd.setBeschrijving(dto.getBeschrijving());
-		maaltijd.setCalorieen(dto.getCalorieen());
 		maaltijd.setNaam(dto.getNaam());
 		maaltijd.setPrijs(dto.getPrijs());
 

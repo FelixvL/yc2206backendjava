@@ -78,7 +78,6 @@ public class MaaltijdDto {
 		MaaltijdDto maaltijdDto = new MaaltijdDto();
 
 		maaltijdDto.setBeschrijving(maaltijd.getBeschrijving());
-		maaltijdDto.setCalorieen(maaltijd.getCalorieen());
 		maaltijdDto.setId(maaltijd.getId());
 		maaltijdDto.setNaam(maaltijd.getNaam());
 		maaltijdDto.setPrijs(maaltijd.getPrijs());
