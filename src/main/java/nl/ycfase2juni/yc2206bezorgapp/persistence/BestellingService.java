@@ -30,6 +30,7 @@ public class BestellingService {
 		Restaurant r = m.getRestaurant();
 
 		b.setMaaltijd_prijs(m.getPrijs());
+		b.setTotaal_prijs(m.getPrijs());;
 
 		b.voegMaaltijdToe(m);
 		b.setKlant(k);

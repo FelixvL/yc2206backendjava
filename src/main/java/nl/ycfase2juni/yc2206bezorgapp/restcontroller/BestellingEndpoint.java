@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import nl.ycfase2juni.yc2206bezorgapp.dto.BestellingDto;
 import nl.ycfase2juni.yc2206bezorgapp.dto.StartbestellingDto;
 import nl.ycfase2juni.yc2206bezorgapp.model.Bestelling;
+import nl.ycfase2juni.yc2206bezorgapp.model.Bezorger;
 import nl.ycfase2juni.yc2206bezorgapp.model.Klant;
 import nl.ycfase2juni.yc2206bezorgapp.model.Restaurant;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.BestellingRepository;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.BestellingService;
+import nl.ycfase2juni.yc2206bezorgapp.persistence.BezorgerService;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.KlantService;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.RestaurantService;
 
@@ -31,6 +33,9 @@ public class BestellingEndpoint {
 	
 	@Autowired
 	KlantService ks;
+	
+	@Autowired
+	BezorgerService bes;
 	
 	@Autowired
 	BestellingRepository br;
@@ -76,6 +81,13 @@ public class BestellingEndpoint {
 		Optional<Klant> optionalKlant = ks.findById(id);
 
 		return optionalKlant.get().getBestellingen().stream().map(BestellingDto::createFromModel);
+	}
+	
+	@GetMapping("overzichtbezorgerbestellingen/bezorger/{id}")
+	public Stream<BestellingDto> overzichtBezorgerBestellingen(@PathVariable long id) {
+		Optional<Bezorger> optionalBezorger = bes.findById(id);
+
+		return optionalBezorger.get().getBestellingen().stream().map(BestellingDto::createFromModel);
 	}
 
 	@DeleteMapping("verwijderbestelling/{bestellingid}")

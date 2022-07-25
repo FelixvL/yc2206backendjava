@@ -33,6 +33,9 @@ public class Bestelling {
 	@ManyToOne(optional = false)
 	private Klant klant;
 	
+	@ManyToOne(optional = false)
+	private Bezorger bezorger;
+	
 	public void voegMaaltijdToe(Maaltijd m) {
 		maaltijden.add(m);
 	}
@@ -91,6 +94,14 @@ public class Bestelling {
 		this.klant = klant;
 	}
 	
+	public Bezorger getBezorger() {
+		return bezorger;
+	}
+
+	public void setBezorger(Bezorger bezorger) {
+		this.bezorger = bezorger;
+	}
+
 	@JsonIgnore 
 	public Restaurant getRestaurant() {
 		return restaurant;

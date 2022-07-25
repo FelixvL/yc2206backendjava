@@ -26,6 +26,9 @@ public class Restaurant {
 	@OneToMany(orphanRemoval = true, mappedBy = "restaurant")
 	private List<Bestelling> bestellingen;
 	
+	@OneToMany(orphanRemoval = true, mappedBy = "restaurant")
+	private List<Bezorger> bezorgers;
+	
 	public long getId() {
 		return id;
 	}
@@ -78,6 +81,15 @@ public class Restaurant {
 	public void setBestellingen(List<Bestelling> bestellingen) {
 		this.bestellingen = bestellingen;
 	}
+	
+	public List<Bezorger> getBezorgers() {
+		return bezorgers;
+	}
+	
+	public void setBezorgers(List<Bezorger> bezorgers) {
+		this.bezorgers = bezorgers;
+	}
+	
 	
 	
 
