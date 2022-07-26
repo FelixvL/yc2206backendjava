@@ -4,7 +4,9 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +16,7 @@ import nl.ycfase2juni.yc2206bezorgapp.dto.SaveBezorgerDto;
 import nl.ycfase2juni.yc2206bezorgapp.model.Bezorger;
 import nl.ycfase2juni.yc2206bezorgapp.model.Maaltijd;
 import nl.ycfase2juni.yc2206bezorgapp.model.Restaurant;
+import nl.ycfase2juni.yc2206bezorgapp.persistence.BezorgerRepository;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.BezorgerService;
 import nl.ycfase2juni.yc2206bezorgapp.persistence.RestaurantService;
 
@@ -25,6 +28,9 @@ public class BezorgerEndpoint {
 	
 	@Autowired
 	RestaurantService rs;
+	
+	@Autowired
+	BezorgerRepository ber;
 	
 	@GetMapping("overzichtbezorgers")
 	public Stream<BezorgerDto> overzichtBezorgers() {
@@ -43,6 +49,12 @@ public class BezorgerEndpoint {
 
 		bes.bezorgerInvoeren(bezorger);
 		
+	}
+	
+	@DeleteMapping("verwijderbezorger/{bezorgerid}")
+	public void verwijderBezorger(@PathVariable("bezorgerid") int bezorgerid){
+		long beid = bezorgerid;
+		ber.deleteById(beid);
 	}
 	
 	
