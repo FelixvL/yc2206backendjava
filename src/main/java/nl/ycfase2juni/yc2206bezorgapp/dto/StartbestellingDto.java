@@ -7,6 +7,8 @@ public class StartbestellingDto {
 	private long maaltijdId;
 	
 	private String opmerking;
+	
+	private long bezorgerId;
 
 	public long getKlantId() {
 		return klantId;
@@ -32,5 +34,13 @@ public class StartbestellingDto {
 		this.opmerking = opmerking;
 	}
 	
+	public long getBezorgerId() {
+		return bezorgerId;
+	}
+	
+	public void setBezorgerId(long bezorgerId) {
+		this.bezorgerId = bezorgerId;
+	}
+
 
 }

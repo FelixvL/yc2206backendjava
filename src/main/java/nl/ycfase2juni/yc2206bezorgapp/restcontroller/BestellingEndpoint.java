@@ -54,15 +54,15 @@ public class BestellingEndpoint {
 		bestelling.setOpmerking(b.getOpmerking());
 		bestelling.setStatus("nieuw");
 
-		bs.bestellingInvoeren(bestelling, b.getMaaltijdId(), b.getKlantId());
+		bs.bestellingInvoeren(bestelling, b.getMaaltijdId(), b.getKlantId(), b.getBezorgerId());
 	}
 
-	// Native
-	@PostMapping("bestellinginvoeren/{maaltijd_id}/{klant_id}")
-	public void klantBestellingInvoeren(@RequestBody Bestelling b, @PathVariable("maaltijd_id") long maaltijd_id, @PathVariable("klant_id") long klant_id) {
-		System.out.println(b.getId());
-		bs.bestellingInvoeren(b, maaltijd_id, klant_id);
-	}
+//	// Native
+//	@PostMapping("bestellinginvoeren/{maaltijd_id}/{klant_id}")
+//	public void klantBestellingInvoeren(@RequestBody Bestelling b, @PathVariable("maaltijd_id") long maaltijd_id, @PathVariable("klant_id") long klant_id) {
+//		System.out.println(b.getId());
+//		bs.bestellingInvoeren(b, maaltijd_id, klant_id);
+//	}
 	
 	@GetMapping("overzichtbestellingen")
 	public Stream<BestellingDto> overzichtBestellingen() {

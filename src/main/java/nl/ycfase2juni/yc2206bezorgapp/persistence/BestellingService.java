@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import nl.ycfase2juni.yc2206bezorgapp.model.Bestelling;
+import nl.ycfase2juni.yc2206bezorgapp.model.Bezorger;
 import nl.ycfase2juni.yc2206bezorgapp.model.Klant;
 import nl.ycfase2juni.yc2206bezorgapp.model.Maaltijd;
 import nl.ycfase2juni.yc2206bezorgapp.model.Restaurant;
@@ -24,9 +25,13 @@ public class BestellingService {
 	@Autowired
 	KlantRepository kr;
 
-	public void bestellingInvoeren(Bestelling b, long maaltijdId, long klantId) {
+	@Autowired
+	BezorgerRepository ber;
+
+	public void bestellingInvoeren(Bestelling b, long maaltijdId, long klantId, long bezorgerId) {
 		Maaltijd m = mr.findById(maaltijdId).get();
 		Klant k = kr.findById(klantId).get();
+		Bezorger be = ber.findById(bezorgerId).get();
 		Restaurant r = m.getRestaurant();
 
 		b.setMaaltijd_prijs(m.getPrijs());
@@ -35,6 +40,7 @@ public class BestellingService {
 		b.voegMaaltijdToe(m);
 		b.setKlant(k);
 		b.setRestaurant(r);
+		b.setBezorger(be);
 
 		br.save(b);	
 	}
