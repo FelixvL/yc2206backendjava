@@ -1,6 +1,7 @@
 package nl.ycfase2juni.yc2206bezorgapp.persistence;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,9 @@ import nl.ycfase2juni.yc2206bezorgapp.model.Restaurant;
 
 @Service
 public class BestellingService {
+	
+	private final Random random = new Random();
+	
 	@Autowired
 	BestellingRepository br;
 	
@@ -28,11 +32,13 @@ public class BestellingService {
 	@Autowired
 	BezorgerRepository ber;
 
-	public void bestellingInvoeren(Bestelling b, long maaltijdId, long klantId, long bezorgerId) {
+	public void bestellingInvoeren(Bestelling b, long maaltijdId, long klantId) {
 		Maaltijd m = mr.findById(maaltijdId).get();
 		Klant k = kr.findById(klantId).get();
-		Bezorger be = ber.findById(bezorgerId).get();
 		Restaurant r = m.getRestaurant();
+
+		List<Bezorger> bezorgers = r.getBezorgers();
+		Bezorger be = bezorgers.get(random.nextInt(bezorgers.size()));
 
 		b.setMaaltijd_prijs(m.getPrijs());
 		b.setTotaal_prijs(m.getPrijs());;

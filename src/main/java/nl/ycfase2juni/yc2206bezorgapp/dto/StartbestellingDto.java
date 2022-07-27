@@ -8,8 +8,6 @@ public class StartbestellingDto {
 	
 	private String opmerking;
 	
-	private long bezorgerId;
-
 	public long getKlantId() {
 		return klantId;
 	}
@@ -33,14 +31,5 @@ public class StartbestellingDto {
 	public void setOpmerking(String opmerking) {
 		this.opmerking = opmerking;
 	}
-	
-	public long getBezorgerId() {
-		return bezorgerId;
-	}
-	
-	public void setBezorgerId(long bezorgerId) {
-		this.bezorgerId = bezorgerId;
-	}
-
 
 }

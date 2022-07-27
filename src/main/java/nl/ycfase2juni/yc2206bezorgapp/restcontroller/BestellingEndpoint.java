@@ -54,7 +54,7 @@ public class BestellingEndpoint {
 		bestelling.setOpmerking(b.getOpmerking());
 		bestelling.setStatus("nieuw");
 
-		bs.bestellingInvoeren(bestelling, b.getMaaltijdId(), b.getKlantId(), b.getBezorgerId());
+		bs.bestellingInvoeren(bestelling, b.getMaaltijdId(), b.getKlantId());
 	}
 
 //	// Native
