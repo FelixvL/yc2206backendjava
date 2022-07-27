@@ -7,7 +7,7 @@ public class StartbestellingDto {
 	private long maaltijdId;
 	
 	private String opmerking;
-
+	
 	public long getKlantId() {
 		return klantId;
 	}
@@ -31,6 +31,5 @@ public class StartbestellingDto {
 	public void setOpmerking(String opmerking) {
 		this.opmerking = opmerking;
 	}
-	
 
 }
